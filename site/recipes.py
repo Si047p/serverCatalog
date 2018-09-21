@@ -17,7 +17,7 @@ from database import User, Recipe, Base
 app = Flask(__name__)
 
 CLIENT_ID = json.loads(
-    open('/vagrant/serverCatalog/site/client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/serverCatalog/site/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Restaurant Menu App"
 
 
@@ -52,7 +52,7 @@ def gconnect():
 
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('/vagrant/serverCatalog/site/client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/serverCatalog/site/client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
@@ -278,7 +278,7 @@ def newRecipe():
         flash('New Recipe %s Created Successfully' % (newItem.name))
         return redirect(url_for('showRecipes'))
     else:
-        return render_template('newRecipe.html', login_session=login_session)
+        return render_template('newrecipe.html', login_session=login_session)
 
 
 # Edit a recipe
