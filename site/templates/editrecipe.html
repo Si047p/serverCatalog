@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit Recipe</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control"
+						name="name" value="{{item.name}}">
+
+					<label for="instructions">Instructions:</label>
+					<textarea class="form-control" maxlength="500" rows="3"
+						name="instructions">{{item.instructions}}</textarea>
+
+					<label for="picture">Picture:</label>
+					<textarea class="form-control" maxlength="250" rows="1"
+						name="picture">{{item.picture}}</textarea>
+
+					</br label for="type">Type:</label>
+					<select name="type">
+						<option {%if item.type =='Beverage'%}selected="selected"{%endif%}
+							value="Beverage">Beverage</option>
+						<option {%if item.type =='Appetizer'%}selected="selected"{%endif%}
+							value="Appetizer">Appetizer</option>
+						<option {%if item.type =='Side'%}selected="selected"{%endif%}
+							value="Side">Side</option>
+						<option {%if item.type =='Main Dish'%}selected="selected"{%endif%}
+							value="Entree">Entree</option>
+						<option {%if item.type =='Desert'%}selected="selected"{%endif%}
+							value="Desert">Desert</option>
+					</select>
+					</br></br></br>
+
+					
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href = '{{url_for('showRecipes')}}'>
+						<button class="btn btn-default delete" type="button">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

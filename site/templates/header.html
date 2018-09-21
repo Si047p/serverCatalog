@@ -1,0 +1,17 @@
+<div class="row top-menu">
+	<div class="col-md-6">
+		<a href="{{url_for('showRecipes')}}">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Show All Recipes
+		</a>
+	</div>
+	<div class="col-md-6 text-right creator">
+					{%if 'username' not in session %}		
+		<img src="/static/blank_user.gif" style ="height: 100px";>
+		<a href="{{url_for('showLogin')}}">Login</a>
+		{% else %}
+		<img src="{{login_session.picture}}" alt="{{login_session.name}}" style ="height: 100px";>
+		<a href="{{url_for('gdisconnect')}}">Logout </a>
+		{% endif %}
+		
+	</div>
+</div>
