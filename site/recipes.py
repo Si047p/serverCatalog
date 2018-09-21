@@ -219,7 +219,7 @@ def singleRecipe(recipe_id):
         id=recipe_id).one()
     creator = getUserInfo(item.user_id)
     if 'username' not in login_session:
-        return render_template('publicsingleRecipe.html', recipe=item,
+        return render_template('publicsinglerecipe.html', recipe=item,
                                login_session=login_session,
                                creator=creator)
     else:
@@ -228,7 +228,7 @@ def singleRecipe(recipe_id):
                                    login_session=login_session,
                                    creator=creator)
         else:
-            return render_template('publicsingleRecipe.html', recipe=item,
+            return render_template('publicsinglerecipe.html', recipe=item,
                                    login_session=login_session,
                                    creator=creator)
 
